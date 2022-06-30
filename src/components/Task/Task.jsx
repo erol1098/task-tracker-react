@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import TaskTracker from "../../util/task-tracker";
 import styles from "./Task.module.scss";
 const Task = (props) => {
@@ -28,13 +28,13 @@ const Task = (props) => {
       className="d-flex justify-content-end align-items-center bg-dark"
       id={id}
     >
-      <div style={!done ? { width: "97%" } : { width: "100%" }}>
+      <div style={isDone ? { width: "97%" } : { width: "100%" }}>
         <p
           className={`d-flex flex-column ${isDone ? styles.done : ""}`}
           onClick={doneHandler}
         >
           <span className="fw-bold mb-2">{task}</span>
-          <span>{time}</span>
+          <span className="text-secondary">{time}</span>
         </p>
         <span className="text-danger fw-bold p-1" onClick={deleteHandler}>
           x

@@ -13,7 +13,7 @@ const Tasks = () => {
           return <Task key={id} data={item} />;
         })}
         {userTasks.length < 1 && (
-          <li className="text-center fw-bold">No Tasks To Show!</li>
+          <li className="text-center fw-bold p-3">No Tasks To Show!</li>
         )}
       </ul>
     </section>

@@ -56,7 +56,7 @@ const AddTask = ({ toggle }) => {
           Date & Time
         </label>
         <input
-          type="text"
+          type="datetime-local"
           className="form-control"
           id="time"
           name="time"
