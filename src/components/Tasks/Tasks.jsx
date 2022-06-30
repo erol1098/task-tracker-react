@@ -6,15 +6,13 @@ const Tasks = () => {
   const { userTasks } = useContext(TaskTracker);
 
   return (
-    <section className={`${styles.list} w-50`}>
+    <section className={styles.list}>
       <ul>
         {userTasks.map((item) => {
           const { id } = item;
           return <Task key={id} data={item} />;
         })}
-        {userTasks.length < 1 && (
-          <li className="text-center py-2">No Item Found</li>
-        )}
+        {userTasks.length < 1 && <li className="text-center">No Item Found</li>}
       </ul>
     </section>
   );

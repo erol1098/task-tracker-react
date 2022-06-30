@@ -13,7 +13,6 @@ const Task = (props) => {
 
   const doneHandler = (e) => {
     setDone((prevState) => !prevState);
-    console.log(done);
     setUserTasks((prevTasks) =>
       prevTasks.map((task) => {
         if (task.id === e.target.closest("li").id) {
@@ -25,18 +24,16 @@ const Task = (props) => {
   };
 
   const doneClass = isDone
-    ? "text-decoration-line-through w-100 py-2 m-0 "
-    : "w-100 py-2 m-0";
+    ? "d-flex flex-column text-decoration-line-through"
+    : "d-flex flex-column";
 
   return (
-    <li
-      className="d-flex justify-content-between align-items-center border border-primary"
-      id={id}
-    >
+    <li className="d-flex justify-content-between align-items-center " id={id}>
       <p className={doneClass} onClick={doneHandler}>
-        {task}
+        <span>{task}</span>
+        <span>{time}</span>
       </p>
-      <span className="text-danger fw-bold" onClick={deleteHandler}>
+      <span className="text-danger fw-bold p-0" onClick={deleteHandler}>
         x
       </span>
     </li>

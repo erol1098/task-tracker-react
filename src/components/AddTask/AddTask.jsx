@@ -33,8 +33,8 @@ const AddTask = ({ toggle }) => {
   };
 
   const formClass = toggle
-    ? "d-flex flex-column w-50"
-    : "d-flex flex-column w-50 d-none";
+    ? "d-flex flex-column w-100"
+    : "d-flex flex-column d-none w-100";
 
   return (
     <form className={formClass} onSubmit={saveTaskHandler}>

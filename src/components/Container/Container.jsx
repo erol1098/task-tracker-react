@@ -10,8 +10,8 @@ const Container = () => {
   };
   return (
     <div
-      className="d-flex flex-column align-items-center justify-content-center"
-      style={{ width: "100vw" }}
+      className="d-flex flex-column align-items-center justify-content-center shadow mx-auto p-4"
+      style={{ width: "30rem" }}
     >
       <Header getToggle={toggleHandler} />
       <AddTask toggle={toggle} />
