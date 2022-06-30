@@ -1,0 +1,17 @@
+.list {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  // padding: 0.3rem 0;
+  li {
+    display: block;
+    list-style-type: none;
+    width: 80%;
+    margin: auto;
+    padding: 0rem 0.8rem;
+    // &:hover {
+    //   transform: scaleY(1.1);
+    // }
+    span {
+      cursor: pointer;
+    }
+  }
+}

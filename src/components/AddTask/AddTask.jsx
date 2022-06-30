@@ -7,7 +7,7 @@ const AddTask = ({ toggle }) => {
     id: "",
     task: "",
     time: "",
-    isDone: false,
+    isDone: 0,
   });
   const { task, time } = input;
 
@@ -23,12 +23,12 @@ const AddTask = ({ toggle }) => {
 
   const saveTaskHandler = (e) => {
     e.preventDefault();
-    setUserTasks((prevList) => [...prevList, input]);
+    task && time && setUserTasks((prevList) => [...prevList, input]);
     setInput({
       id: "",
       task: "",
       time: "",
-      isDone: false,
+      isDone: 0,
     });
   };
 

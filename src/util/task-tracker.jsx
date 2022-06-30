@@ -2,7 +2,9 @@ import { createContext, useEffect, useState } from "react";
 
 const TaskTracker = createContext();
 export const TaskTrackerProvider = (props) => {
-  const [userTasks, setUserTasks] = useState();
+  const [userTasks, setUserTasks] = useState(
+    JSON.parse(localStorage.getItem("task-tracker")) || []
+  );
   const values = { userTasks, setUserTasks };
 
   useEffect(() => {
