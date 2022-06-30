@@ -5,7 +5,8 @@ export const TaskTrackerProvider = (props) => {
   const [userTasks, setUserTasks] = useState(
     JSON.parse(localStorage.getItem("task-tracker")) || []
   );
-  const values = { userTasks, setUserTasks };
+  const [done, setDone] = useState(false);
+  const values = { userTasks, setUserTasks, done, setDone };
 
   useEffect(() => {
     localStorage.setItem("task-tracker", JSON.stringify(userTasks));

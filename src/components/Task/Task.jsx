@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import TaskTracker from "../../util/task-tracker";
-
+import styles from "./Task.module.scss";
 const Task = (props) => {
-  const { userTasks, setUserTasks } = useContext(TaskTracker);
+  const { setUserTasks, done, setDone } = useContext(TaskTracker);
   const { id, task, time, isDone } = props.data;
-  const [done, setDone] = useState(false);
+
   const deleteHandler = (e) => {
     setUserTasks((prevState) => {
       return prevState.filter((item) => item.id !== e.target.closest("li").id);
@@ -23,19 +23,23 @@ const Task = (props) => {
     );
   };
 
-  const doneClass = isDone
-    ? "d-flex flex-column text-decoration-line-through"
-    : "d-flex flex-column";
-
   return (
-    <li className="d-flex justify-content-between align-items-center " id={id}>
-      <p className={doneClass} onClick={doneHandler}>
-        <span>{task}</span>
-        <span>{time}</span>
-      </p>
-      <span className="text-danger fw-bold p-0" onClick={deleteHandler}>
-        x
-      </span>
+    <li
+      className="d-flex justify-content-end align-items-center bg-dark"
+      id={id}
+    >
+      <div style={!done ? { width: "97%" } : { width: "100%" }}>
+        <p
+          className={`d-flex flex-column ${isDone ? styles.done : ""}`}
+          onClick={doneHandler}
+        >
+          <span className="fw-bold mb-2">{task}</span>
+          <span>{time}</span>
+        </p>
+        <span className="text-danger fw-bold p-1" onClick={deleteHandler}>
+          x
+        </span>
+      </div>
     </li>
   );
 };
