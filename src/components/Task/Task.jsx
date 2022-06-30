@@ -1,9 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TaskTracker from "../../util/task-tracker";
 import styles from "./Task.module.scss";
 const Task = (props) => {
   const { setUserTasks, done, setDone } = useContext(TaskTracker);
   const { id, task, time, isDone } = props.data;
+  const [newTime, setNewTime] = useState();
+
+  useEffect(() => {
+    setNewTime(
+      new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h12",
+        dayPeriod: "long",
+        timeZone: "Asia/Istanbul",
+      }).format(new Date(time))
+    );
+  }, [time]);
 
   const deleteHandler = (e) => {
     setUserTasks((prevState) => {
@@ -34,7 +49,7 @@ const Task = (props) => {
           onClick={doneHandler}
         >
           <span className="fw-bold mb-2">{task}</span>
-          <span className="text-secondary">{time}</span>
+          <span className="text-secondary">{newTime}</span>
         </p>
         <span className="text-danger fw-bold p-1" onClick={deleteHandler}>
           x
