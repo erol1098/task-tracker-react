@@ -4,7 +4,17 @@ import styles from "./Task.module.scss";
 const Task = (props) => {
   const { setUserTasks, done, setDone } = useContext(TaskTracker);
   const { id, task, time, isDone } = props.data;
-  const [newTime, setNewTime] = useState();
+  const [newTime, setNewTime] = useState(
+    new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h12",
+      dayPeriod: "long",
+      timeZone: "Asia/Istanbul",
+    }).format(new Date(Date.UTC(2020, 11, 20, 3, 23)))
+  );
 
   useEffect(() => {
     setNewTime(
