@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Card from "./components/Card/Card";
 import Container from "./components/Container/Container";
 import { TaskTrackerProvider } from "./util/task-tracker";
 
@@ -9,7 +10,9 @@ const App = () => {
   }, []);
   return (
     <TaskTrackerProvider>
-      <Container />
+      <Card>
+        <Container />
+      </Card>
     </TaskTrackerProvider>
   );
 };

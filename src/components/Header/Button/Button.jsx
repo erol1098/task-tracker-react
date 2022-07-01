@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import TaskTracker from "../../../util/task-tracker";
 
-const Button = ({ getToggle }) => {
-  const [toggle, setToggle] = useState(false);
+const Button = () => {
+  const { toggle, setToggle } = useContext(TaskTracker);
   const toggleHandler = (e) => {
     setToggle((prevToggle) => !prevToggle);
-    getToggle(toggle);
   };
   return (
     <>

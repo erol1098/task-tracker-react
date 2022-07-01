@@ -9,7 +9,7 @@ const Header = ({ getToggle }) => {
   };
   return (
     <header className="d-flex flex-column gap-2 py-3">
-      <h1>Task Tracker</h1>
+      <h1 style={{ color: "#F84C74" }}>Task Tracker</h1>
       <Button getToggle={toggleHandler} />
     </header>
   );

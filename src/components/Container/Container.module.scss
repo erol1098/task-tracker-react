@@ -6,7 +6,16 @@
   margin: auto;
   padding: 2rem;
   width: 30rem;
-  background: linear-gradient(to right, #d4d3dd, #efefbb);
+  border-radius: 1rem;
+  // background: linear-gradient(to right, #d4d3dd, #efefbb);
+  background-color: #f8fafb;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  position: relative;
+  img {
+    width: 215px;
+    position: absolute;
+    top: -4.5rem;
+    right: 8.2rem;
+  }
 }

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import TaskTracker from "../../util/task-tracker";
 
-const AddTask = ({ toggle }) => {
-  const { setUserTasks } = useContext(TaskTracker);
+const AddTask = () => {
+  const [alert, setAlert] = useState(false);
+  const { setUserTasks, toggle } = useContext(TaskTracker);
   const [input, setInput] = useState({
     id: "",
     task: "",
@@ -12,6 +13,7 @@ const AddTask = ({ toggle }) => {
   const { task, time } = input;
 
   const inputHandler = (e) => {
+    setAlert(false);
     return setInput((prevInput) => {
       return {
         ...prevInput,
@@ -23,6 +25,10 @@ const AddTask = ({ toggle }) => {
 
   const saveTaskHandler = (e) => {
     e.preventDefault();
+    if (!task || !time) {
+      console.log("alerted");
+      setAlert(true);
+    }
     task && time && setUserTasks((prevList) => [...prevList, input]);
     setInput({
       id: "",
@@ -38,6 +44,12 @@ const AddTask = ({ toggle }) => {
 
   return (
     <form className={formClass} onSubmit={saveTaskHandler}>
+      <div
+        className={`alert alert-danger text-center ${!alert ? "d-none" : ""}`}
+        role="alert"
+      >
+        Please fill the entire fields!
+      </div>
       <div className="mb-3">
         <label htmlFor="email" className="form-label">
           Task
